@@ -9,6 +9,7 @@ namespace GoogleDriveDownloader;
 
 use Yii;
 use Google\Service\Drive;
+use yii\base\Component;
 use yii\base\InvalidConfigException;
 
 
@@ -17,6 +18,22 @@ class Downloader extends Component
 
 
     private $_client = [];
+    private  $_driveDownloader;
+
+	public function getDriveDownloader(): Drive
+    {
+        if (!isset($this->_driveDownloader) or !is_object($this->_driveDownloader)) {
+            $this->_driveDownloader = $this->createDriveDownloader();
+        }
+
+        return $this->_driveDownloader;
+    }
+
+
+	protected function createDriveDownloader(): Drive
+    {
+        return new Drive($this->getClient());
+    }
 
 	public function setClient($client)
     {
@@ -24,7 +41,6 @@ class Downloader extends Component
             throw new InvalidConfigException('"' . get_class($this) . '::client" should be either object or array, "' . gettype($client) . '" given.');
         }
         $this->_client = $client;
-		$this->_gmailMailer = null;
     }
 
 	public function getClient()
