@@ -1,0 +1,38 @@
+{
+	"name": "algsupport/yii2-google-drive-downloader",
+	"description": "An extension for yii2 that uses google service account to download files from google drive and store this in a folder in the web server",
+	"keywords": ["yii2", "Goolgle", "API", "drive", "download"],
+	"type": "yii2-extension",
+	"license": "BSD-3-Clause",
+	"support": {
+		"issues": "https://github.com/algsupport/yii2-google-drive-downloader/issues",
+		"source": "https://github.com/algsupport/yii2-google-drive-downloader"
+	},
+	"authors": [
+		{
+			"name": "Albert Gukasian",
+			"email": "admin@algsupport.com"
+		}
+	],
+	"require": {
+		"yiisoft/yii2": "*",
+		"google/apiclient": "*"
+	},
+	"repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+	    "autoload": {
+        "psr-4": { "GoogleDriverDownloader\\": "src" }
+    },
+	"scripts": {
+		"pre-autoload-dump": "Google\\Task\\Composer::cleanup"
+	},
+	"extra": {
+		"google/apiclient-services": [
+			"Drive"
+		]
+	}
+}
