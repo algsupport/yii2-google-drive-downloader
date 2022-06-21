@@ -41,10 +41,10 @@ class Downloader extends Component
         if (!isset($config['class'])) {
             $config['class'] = Client\DownloaderClient::class;
         }
-	    return $this->createDriverObject($config)->client;
+	    return $this->createDriveObject($config)->client;
     }
 
-	protected function createDriverObject(array $config)
+	protected function createDriveObject(array $config)
     {
         if (isset($config['class'])) {
             $className = $config['class'];
