@@ -25,7 +25,7 @@
         }
     ],
 	    "autoload": {
-        "psr-4": { "GoogleDriverDownloader\\": "src" }
+        "psr-4": { "GoogleDriveDownloader\\": "src" }
     },
 	"scripts": {
 		"pre-autoload-dump": "Google\\Task\\Composer::cleanup"
