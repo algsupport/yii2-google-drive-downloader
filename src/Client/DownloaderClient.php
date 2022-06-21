@@ -1,12 +1,12 @@
 <?php
 
-	namespace GoogleApiMail\Transport;
+	namespace GoogleDriveDownloader\Client;
 
 	use google\Client;
 	use Google\Exception;
-	use Google\Service\Gmail;
+    use Google\Service\Drive;
 
-	class GmailApiTransport
+	class DownloaderClient
 	{
 		private string $_credentials = "";
 
@@ -20,7 +20,7 @@
 			$this->setCredentials($apifile);
 			$this->client = new Client();
 			$this->client->setAuthConfig($this->_credentials);
-			$this->client->addScope(Gmail::MAIL_GOOGLE_COM);
+			$this->client->addScope(Drive::DRIVE);
 		}
 
 		private function setCredentials($apifile)
