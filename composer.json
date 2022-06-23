@@ -16,7 +16,8 @@
 	],
 	"require": {
 		"yiisoft/yii2": "*",
-		"google/apiclient": "*"
+		"google/apiclient": "*",
+		"league/flysystem": "*"
 	},
 	"repositories": [
         {

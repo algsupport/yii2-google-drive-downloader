@@ -1,30 +1,26 @@
 <?php
 
-	namespace GoogleDriveDownloader\Client;
+namespace GoogleDriveDownloader\Client;
 
-	use google\Client;
-	use Google\Exception;
-    use Google\Service\Drive;
+use Google\Client;
+use Google\Service\Drive;
 
-	class DownloaderClient
-	{
-		private string $_credentials = "";
+class DownloaderClient
+{
+    private string $_credentials = "";
 
-		public Client $client;
+    public Client $client;
 
-		/**
-		 * @throws Exception
-		 */
-		public function __construct($apifile)
-		{
-			$this->setCredentials($apifile);
-			$this->client = new Client();
-			$this->client->setAuthConfig($this->_credentials);
-			$this->client->addScope(Drive::DRIVE);
-		}
+    public function __construct($apifile)
+    {
+        $this->setCredentials($apifile);
+        $this->client = new Client();
+        $this->client->setAuthConfig($this->_credentials);
+        $this->client->addScope(Drive::DRIVE);
+    }
 
-		private function setCredentials($apifile)
-		{
-			$this->_credentials = $apifile;
-		}
-	}
+    private function setCredentials($apifile)
+    {
+        $this->_credentials = $apifile;
+    }
+}
