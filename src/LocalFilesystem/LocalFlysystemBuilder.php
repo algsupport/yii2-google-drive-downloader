@@ -8,11 +8,19 @@ use League\Flysystem\Filesystem;
 
 class LocalFlysystemBuilder
 {
-    public $path;
+    private string $_path = "";
 
-    public function build(): Filesystem
+    public Filesystem $filesystem;
+
+    public function __construct($path)
     {
-        $adapter = new LocalFilesystemAdapter(Yii::getAlias($this->path));
-        return new Filesystem($adapter);
+        $this->setPath($path);
+        $adapter = new LocalFilesystemAdapter(Yii::getAlias($this->_path));
+        $this->filesystem = new Filesystem($adapter);
+    }
+
+    private function setPath($path)
+    {
+        $this->_path = $path;
     }
 }
